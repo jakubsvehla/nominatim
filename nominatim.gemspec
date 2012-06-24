@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "nominatim"
   gem.require_paths = ["lib"]
   gem.version       = Nominatim::VERSION
+
+  gem.add_development_dependency 'rspec', '~> 2.10'
 end
