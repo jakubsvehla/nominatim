@@ -1,6 +1,6 @@
 # Nominatim
 
-TODO: Write a gem description
+A Ruby wrapper for the Nominatim API.
 
 ## Installation
 
@@ -18,7 +18,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+places = Nominatim.search('San Francisco').limit(10).address_details(true)
+
+for place in places
+  puts "#{place.display_name} (#{place.type})"
+end
+puts "Found #{places.count} places."
+```
+
+## Configuration
+
+```ruby
+Nominatim.configure do |config|
+  config.email = 'your-email-address@gmail.com'
+  config.endpoint = 'http://nominatim.openstreetmap.org'
+end
+```
 
 ## Contributing
 
