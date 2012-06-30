@@ -1,3 +1,5 @@
+require "nominatim/place"
+require "nominatim/address"
 require "nominatim/version"
 
 module Nominatim
