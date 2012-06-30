@@ -1,7 +1,14 @@
+require "nominatim/version"
 require "nominatim/place"
 require "nominatim/address"
-require "nominatim/version"
+require "nominatim/configuration"
 
 module Nominatim
-  # Your code goes here...
+  def self.config
+    @config ||= Configuration.new
+  end
+
+  def self.configure(&block)
+    config.configure &block
+  end
 end
