@@ -1,7 +1,7 @@
 module Nominatim
   class Configuration
 
-    DEFAULT_ENDPOINT = 'http://nominatim.openstreetmap.org/'
+    DEFAULT_ENDPOINT = 'http://nominatim.openstreetmap.org'
 
     DEFAULT_USER_AGENT = "Nominatim Ruby Gem #{Nominatim::VERSION}"
 
