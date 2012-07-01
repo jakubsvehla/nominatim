@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe Nominatim do
+  describe '.search' do
+    it 'returns a Nominatim::Search' do
+      Nominatim.search.should be_a Nominatim::Search
+    end
+
+    it 'adds a query criterion if given as a parameter' do
+      search = Nominatim.search('San Francisco')
+      search.criteria[:q].should eq 'San Francisco'
+    end
+  end
+
   describe '.configure' do
 
     before do

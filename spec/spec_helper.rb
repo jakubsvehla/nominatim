@@ -26,3 +26,11 @@ end
 def stub_get(path)
   stub_request(:get, "#{Nominatim.config.endpoint}#{path}").with(query: { format: 'json' })
 end
+
+def fixture_path
+  File.expand_path('../fixtures', __FILE__)
+end
+
+def fixture(file)
+  File.new(fixture_path + '/' + file)
+end
