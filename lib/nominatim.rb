@@ -1,4 +1,6 @@
 require "nominatim/version"
+require "nominatim/response/parse_json"
+require "nominatim/client"
 require "nominatim/place"
 require "nominatim/address"
 require "nominatim/configuration"
