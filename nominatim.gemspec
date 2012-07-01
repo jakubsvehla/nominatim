@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Nominatim::VERSION
 
   gem.add_development_dependency 'rspec', '~> 2.10'
+  gem.add_development_dependency 'simplecov'
 end
