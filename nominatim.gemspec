@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["jakub.svehla@gmail.com"]
   gem.description   = %q{A Ruby wrapper for the Nominatim API.}
   gem.summary       = %q{A Ruby wrapper for the Nominatim API.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/jakubsvehla/nominatim"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'faraday'
   gem.add_dependency 'multi_json'
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec', '~> 2.10'
   gem.add_development_dependency 'webmock'
   gem.add_development_dependency 'simplecov'
