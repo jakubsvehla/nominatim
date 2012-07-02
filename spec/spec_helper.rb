@@ -1,7 +1,9 @@
-require 'simplecov'
+unless ENV['CI']
+  require 'simplecov'
 
-SimpleCov.start do
-  add_filter 'spec'
+  SimpleCov.start do
+    add_filter 'spec'
+  end
 end
 
 require 'nominatim'
