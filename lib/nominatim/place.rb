@@ -32,7 +32,7 @@ module Nominatim
     #
     # @return [Nominatim::Address]
     def address
-      @address ||= Nominatim::Address.new(@attrs[:address]) unless @attrs[:address].nil?
+      @address ||= Nominatim::Address.new(@attrs[:address]) if @attrs[:address]
     end
 
     # Return a latitude
