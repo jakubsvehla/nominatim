@@ -24,12 +24,12 @@ module Nominatim
     end
 
     def lat
-      @lat ||= @attrs[:lat] || @attrs[:latitude]
+      point.lat
     end
     alias latitude lat
 
     def lon
-      @lon ||= @attrs[:lon] || @attrs[:longitude]
+      point.lon
     end
     alias longitude lon
 
@@ -52,6 +52,12 @@ module Nominatim
 
     def osm_type
       @osm_type ||= @attrs[:osm_type]
+    end
+
+    private
+
+    def point
+      @point ||= Nominatim::Point.new(@attrs[:lat], @attrs[:lon])
     end
   end
 end

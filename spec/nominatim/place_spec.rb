@@ -51,13 +51,8 @@ describe Nominatim::Place do
 
   describe '#lat' do
     it 'returns a latitude when set with lat' do
-      place = Nominatim::Place.new(lat: '52.5487969264788')
-      place.lat.should eq '52.5487969264788'
-    end
-
-    it 'returns a latitude when set with latitude' do
-      place = Nominatim::Place.new(latitude: '52.5487969264788')
-      place.lat.should eq '52.5487969264788'
+      place = Nominatim::Place.new(lat: '52.5487969264788', lon: '-1.81642935385411')
+      place.lat.should eq 52.5487969264788
     end
 
     it 'returns nil when not set' do
@@ -68,13 +63,8 @@ describe Nominatim::Place do
 
   describe '#latitude' do
     it 'returns a latitude when set with lat' do
-      place = Nominatim::Place.new(lat: '52.5487969264788')
-      place.latitude.should eq '52.5487969264788'
-    end
-
-    it 'returns a latitude when set with latitude' do
-      place = Nominatim::Place.new(latitude: '52.5487969264788')
-      place.latitude.should eq '52.5487969264788'
+      place = Nominatim::Place.new(lat: '52.5487969264788', lon: '-1.81642935385411')
+      place.latitude.should eq 52.5487969264788
     end
 
     it 'returns nil when not set' do
@@ -85,13 +75,8 @@ describe Nominatim::Place do
 
   describe '#lon' do
     it 'returns a longitude when set with lon' do
-      place = Nominatim::Place.new(lon: '-1.81642935385411')
-      place.lon.should eq '-1.81642935385411'
-    end
-
-    it 'returns a longitude when set with longitude' do
-      place = Nominatim::Place.new(longitude: '-1.81642935385411')
-      place.lon.should eq '-1.81642935385411'
+      place = Nominatim::Place.new(lat: '52.5487969264788', lon: '-1.81642935385411')
+      place.lon.should eq -1.81642935385411
     end
 
     it 'returns nil when not set' do
@@ -102,13 +87,8 @@ describe Nominatim::Place do
 
   describe '#longitude' do
     it 'returns a longitude when set with lon' do
-      place = Nominatim::Place.new(lon: '-1.81642935385411')
-      place.longitude.should eq '-1.81642935385411'
-    end
-
-    it 'returns a longitude when set with longitude' do
-      place = Nominatim::Place.new(longitude: '-1.81642935385411')
-      place.longitude.should eq '-1.81642935385411'
+      place = Nominatim::Place.new(lat: '52.5487969264788', lon: '-1.81642935385411')
+      place.longitude.should eq -1.81642935385411
     end
 
     it 'returns nil when not set' do

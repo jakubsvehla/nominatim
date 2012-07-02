@@ -36,8 +36,8 @@ describe Nominatim::Search do
 
     it 'returns correct places' do
       search.first.display_name.should eq 'Los Angeles, California, United States of America'
-      search.first.lat.should eq '34.0966764'
-      search.first.lon.should eq '-117.7196785'
+      search.first.lat.should eq 34.0966764
+      search.first.lon.should eq -117.7196785
     end
   end
 
