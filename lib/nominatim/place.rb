@@ -7,7 +7,7 @@ module Nominatim
       @attrs = attrs
     end
 
-    # Returns display name
+    # Return display name
     #
     # @return [String]
     def display_name
