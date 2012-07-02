@@ -163,7 +163,7 @@ describe Nominatim::Place do
   describe '#place_id' do
     it 'returns a place id when set with place_id' do
       place = Nominatim::Place.new(place_id: '84327444')
-      place.place_id.should eq '84327444'
+      place.place_id.should eq 84327444
     end
 
     it 'returns nil when not set' do
@@ -175,7 +175,7 @@ describe Nominatim::Place do
   describe '#osm_id' do
     it 'returns a osm id when set with osm_id' do
       place = Nominatim::Place.new(osm_id: '90394480')
-      place.osm_id.should eq '90394480'
+      place.osm_id.should eq 90394480
     end
 
     it 'returns nil when not set' do

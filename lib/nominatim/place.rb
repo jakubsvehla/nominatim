@@ -43,11 +43,11 @@ module Nominatim
     end
 
     def place_id
-      @place_id ||= @attrs[:place_id]
+      @place_id ||= @attrs[:place_id].to_i if @attrs[:place_id]
     end
 
     def osm_id
-      @osm_id ||= @attrs[:osm_id]
+      @osm_id ||= @attrs[:osm_id].to_i if @attrs[:osm_id]
     end
 
     def osm_type
