@@ -146,7 +146,7 @@ describe Nominatim::Place do
   end
 
   describe '#osm_id' do
-    it 'returns a osm id when set with osm_id' do
+    it 'returns an osm id when set with osm_id' do
       place = Nominatim::Place.new(osm_id: '90394480')
       place.osm_id.should eq 90394480
     end
@@ -158,7 +158,7 @@ describe Nominatim::Place do
   end
 
   describe '#osm_type' do
-    it 'returns a osm type when set with osm_type' do
+    it 'returns an osm type when set with osm_type' do
       place = Nominatim::Place.new(osm_type: 'way')
       place.osm_type.should eq 'way'
     end
