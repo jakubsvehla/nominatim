@@ -124,7 +124,7 @@ describe Nominatim::Place do
   describe '#polygonpoints' do
     it 'returns polygon points when set with polygonpoints' do
       place = Nominatim::Place.new(polygonpoints: [["-1.816513", "52.5487566"], ["-1.8164913", "52.548824"], ["-1.8164685", "52.5488213"]])
-      place.polygonpoints.should eq [["-1.816513", "52.5487566"], ["-1.8164913", "52.548824"], ["-1.8164685", "52.5488213"]]
+      place.polygonpoints.should be_a Nominatim::Polygon
     end
 
     it 'returns nil when not set' do

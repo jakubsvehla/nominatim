@@ -56,8 +56,11 @@ module Nominatim
     end
     alias bounding_box boundingbox
 
+    # Return a polygon
+    #
+    # @return [Nominatim::Polygon]
     def polygonpoints
-      @polygonpoints ||= @attrs[:polygonpoints]
+      @polygonpoints ||= Nominatim::Polygon.new(@attrs[:polygonpoints]) if @attrs[:polygonpoints]
     end
 
     # Return a place id

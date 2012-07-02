@@ -1,6 +1,7 @@
 require "nominatim/version"
 require "nominatim/configuration"
 require "nominatim/point"
+require "nominatim/polygon"
 require "nominatim/address"
 require "nominatim/place"
 require "nominatim/response/parse_json"
