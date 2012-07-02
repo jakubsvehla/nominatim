@@ -97,13 +97,6 @@ describe Nominatim::Place do
     end
   end
 
-  # describe '#coordinates' do
-  #   it 'returns coordinates when set with lat and lon' do
-  #     place = Nominatim::Place.new(lat: '52.5487969264788', lon: '-1.81642935385411')
-  #     place.coordinates.should eq ['52.5487969264788', '-1.81642935385411']
-  #   end
-  # end
-
   describe '#boundingbox' do
     it 'returns a boundingbox when set with boundingbox' do
       place = Nominatim::Place.new(boundingbox: ["52.5487442016602", "52.5488510131836", "-1.81651306152344", "-1.81634628772736"])
