@@ -12,7 +12,7 @@ module Nominatim
       get('/search', @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }.each(&block)
     end
 
-    # Query string to search from.
+    # Query string to search for.
     #
     # @param q [String] Query string
     # @return [Nominatim::Search]
