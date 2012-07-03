@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nominatim by jakubsvehla</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Nominatim</h1>
+        <p>A Ruby wrapper for the Nominatim API.</p>
+
+        <p class="view"><a href="https://github.com/jakubsvehla/nominatim">View the Project on GitHub <small>jakubsvehla/nominatim</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jakubsvehla/nominatim/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jakubsvehla/nominatim/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jakubsvehla/nominatim">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Nominatim</h1>
+
+<p>A Ruby wrapper for the Nominatim API. <a href="http://travis-ci.org/jakubsvehla/nominatim"><img src="https://secure.travis-ci.org/jakubsvehla/nominatim.png?branch=master" alt="Build Status"></a></p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'nominatim'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install nominatim
+</code></pre>
+
+<h2>Documentation</h2>
+
+<p><a href="http://rdoc.info/gems/nominatim">http://rdoc.info/gems/nominatim</a></p>
+
+<h2>Usage</h2>
+
+<div class="highlight">
+<pre><span class="n">places</span> <span class="o">=</span> <span class="no">Nominatim</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">'San Francisco'</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">address_details</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">place</span> <span class="k">in</span> <span class="n">places</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">place</span><span class="o">.</span><span class="n">display_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">place</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">)"</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"Found </span><span class="si">#{</span><span class="n">places</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2"> places."</span>
+</pre>
+</div>
+
+
+<h2>Configuration</h2>
+
+<div class="highlight">
+<pre><span class="no">Nominatim</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s1">'your-email-address@example.com'</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="s1">'http://open.mapquestapi.com/nominatim/v1'</span>
+<span class="k">end</span>
+</pre>
+</div>
+
+
+<h2>Contributing</h2>
+
+<ol>
+<li><a href="http://help.github.com/fork-a-repo/">Fork the repository.</a></li>
+<li><a href="http://learn.github.com/p/branching.html">Create a topic branch.</a></li>
+<li>Add specs for your unimplemented feature or bug fix.</li>
+<li>Run <code>bundle exec rake spec</code>. If your specs pass, return to step 3.</li>
+<li>Implement your feature or bug fix.</li>
+<li>Run <code>bundle exec rake spec</code>. If your specs fail, return to step 5.</li>
+<li>Run <code>open coverage/index.html</code>. If your changes are not completely covered
+by your tests, return to step 3.</li>
+<li>Add, commit, and push your changes.</li>
+<li><a href="http://help.github.com/send-pull-requests/">Submit a pull request.</a></li>
+</ol><h2>Supported Ruby Versions</h2>
+
+<p>Nominatim is tested under 1.9.2 and 1.9.3.</p>
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2012 Jakub Svehla</p>
+
+<p>MIT License</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jakubsvehla">jakubsvehla</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
