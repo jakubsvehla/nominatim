@@ -12,6 +12,18 @@ describe Nominatim do
     end
   end
 
+  describe '.reverse' do
+    it 'returns a Nominatim::Reverse' do
+      Nominatim.reverse.should be_a Nominatim::Reverse
+    end
+
+    it 'adds a reverse query criteria if given as a parameters' do
+      reverse = Nominatim.reverse('37.733976', '-122.3912081')
+      reverse.criteria[:lat].should eq '37.733976'
+      reverse.criteria[:lon].should eq '-122.3912081'
+    end
+  end
+
   describe '.configure' do
 
     before do
