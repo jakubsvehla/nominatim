@@ -71,5 +71,13 @@ module Nominatim
     def place
       @place ||= @attrs[:place]
     end
+
+    def town
+      @town ||= @attrs[:town]
+    end
+
+    def village
+      @village ||= @attrs[:village]
+    end
   end
 end
