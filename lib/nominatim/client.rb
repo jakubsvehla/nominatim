@@ -25,6 +25,7 @@ module Nominatim
       @connection.params[:email] = Nominatim.config.email if Nominatim.config.email
 
       @connection.headers[:user_agent] = Nominatim.config.user_agent
+      @connection.headers[:"accept-language"] = Nominatim.config.accept_language
 
       @connection
     end
