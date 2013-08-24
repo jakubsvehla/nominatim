@@ -8,7 +8,7 @@ module Nominatim
 
     # Returns search result.
     def fetch
-      Nominatim::Place.new(get('/reverse', @criteria).body)
+      Nominatim::Place.new(get('reverse', @criteria).body)
     end
 
     # Latitude string to search for.
