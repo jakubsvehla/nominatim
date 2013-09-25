@@ -9,7 +9,7 @@ module Nominatim
 
     # Iterates over the search results.
     def each(&block)
-      get('search', @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }.each(&block)
+      get(Nominatim.config.search_url, @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }.each(&block)
     end
 
     # Query string to search for.
