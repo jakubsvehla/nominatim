@@ -6,9 +6,11 @@ module Nominatim
       @criteria = {}
     end
 
-    # Returns search result.
+    # Returns search result or nil if no results received.
     def fetch
-      Nominatim::Place.new(get(Nominatim.config.reverse_url, @criteria).body)
+      body = get(Nominatim.config.reverse_url, @criteria).body
+      return nil if body.empty?
+      Nominatim::Place.new(body)
     end
 
     # Latitude string to search for.
