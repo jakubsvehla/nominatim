@@ -16,7 +16,13 @@ module Nominatim
     def connection
       return @connection if defined? @connection
 
-      @connection = Faraday.new Nominatim.config.endpoint do |builder|
+      options = {
+        request: {
+          timeout: Nominatim.config.timeout
+        }
+      }
+
+      @connection = Faraday.new Nominatim.config.endpoint, options do |builder|
         builder.use Nominatim::Response::ParseJson
         builder.adapter Faraday.default_adapter
       end
