@@ -9,8 +9,26 @@ module Nominatim
 
     # Iterates over the search results.
     def each(&block)
+      @criteria.delete(:q) if (@criteria.keys & [:street, :city, :county, :state, :country, :postalcode]).count > 0
       @results ||= get(Nominatim.config.search_url, @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }
       @results.each(&block)
+    end
+
+    # Structured search requests
+    # @see https://wiki.openstreetmap.org/wiki/Nominatim
+    %w(city county state country postalcode).to_a.each do |criterion|
+      define_method(criterion) do |param|
+        @criteria[criterion.to_sym] = param
+        self
+      end
+    end
+
+    # Structured street search request
+    #
+    # @see https://wiki.openstreetmap.org/wiki/Nominatim
+    def street housenumber, streetname
+      @criteria[:street] = "#{housenumber} #{streetname}"
+      self
     end
 
     # Query string to search for.
