@@ -76,15 +76,6 @@ module Nominatim
       self
     end
 
-    # Street string to search for.
-    #
-    # @param street [String] Street string
-    # @return [Nominatim::Search]
-    def street(street)
-      @criteria[:street] = street
-      self
-    end
-
     # Limit search results to a specific country (or a list of countries).
     #
     # @param codes [Array<String>, String]
