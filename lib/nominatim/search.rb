@@ -149,5 +149,23 @@ module Nominatim
       self
     end
 
+    # Limit results to certain type, instead of trying to match
+    # all possible matches.
+    #
+    # Possible values:
+    # - settlement
+    # - country
+    # - city
+    # - state
+    #
+    # This feature is not in official Nominatim documentation.
+    #
+    # @param type Type to restrict to
+    # @return [Nominatim::Search]
+    def featuretype(type)
+      @criteria[:featuretype] = type
+      self
+    end
+
   end
 end
