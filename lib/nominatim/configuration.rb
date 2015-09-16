@@ -3,6 +3,8 @@ module Nominatim
 
     DEFAULT_ENDPOINT = 'http://nominatim.openstreetmap.org'
 
+    DEFAULT_KEY = nil
+
     DEFAULT_USER_AGENT = "Nominatim Ruby Gem #{Nominatim::VERSION}"
 
     DEFAULT_EMAIL = nil
@@ -16,6 +18,7 @@ module Nominatim
 
     VALID_OPTIONS_KEYS = [
       :endpoint,
+      :key,
       :user_agent,
       :email,
       :accept_language,
@@ -37,6 +40,7 @@ module Nominatim
 
     def reset!
       self.endpoint         = DEFAULT_ENDPOINT
+      self.key              = DEFAULT_KEY
       self.user_agent       = DEFAULT_USER_AGENT
       self.email            = DEFAULT_EMAIL
       self.accept_language  = DEFAULT_LANGUAGE
