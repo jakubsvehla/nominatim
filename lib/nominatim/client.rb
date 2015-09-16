@@ -29,6 +29,7 @@ module Nominatim
 
       @connection.params[:format] = 'json'
       @connection.params[:email] = Nominatim.config.email if Nominatim.config.email
+      @connection.params[:key] = Nominatim.config.key if Nominatim.config.key
 
       @connection.headers[:user_agent] = Nominatim.config.user_agent
       @connection.headers[:"accept-language"] = Nominatim.config.accept_language
