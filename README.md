@@ -34,6 +34,29 @@ end
 puts "Found #{places.count} places."
 ```
 
+### Structured requests
+
+```ruby
+places = Nominatim.search.city('San Antonio').country('Mexico').limit(10).address_details(true)
+
+for place in places
+  puts "#{place.display_name} (#{place.type})"
+end
+
+puts "Found #{places.count} places."
+```
+
+Nominatim::Search has the following methods to craft structures requests:
+
+- street: accepts house number and street name as parameters
+- city
+- county
+- state
+- country
+- postalcode
+
+See http://wiki.openstreetmap.org/wiki/Nominatim#Parameters
+
 ## Configuration
 
 ```ruby

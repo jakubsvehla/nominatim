@@ -18,9 +18,14 @@ describe Nominatim::Search do
 
     let(:search) { Nominatim::Search.new.query('Los Angeles').limit(1) }
 
+    let(:structured_search){ Nominatim::Search.new.query('Text').city('Los Angeles').country('us').limit(1) }
+
     before do
       stub_get('/search').
         with(query: { q: 'Los Angeles', limit: 1 }).
+        to_return(body: fixture('search.json'))
+      stub_get('/search').
+        with(query: { city: 'Los Angeles', country: 'us', limit: 1 }).
         to_return(body: fixture('search.json'))
     end
 
@@ -38,6 +43,12 @@ describe Nominatim::Search do
       search.first.display_name.should eq 'Los Angeles, California, United States of America'
       search.first.lat.should eq 34.0966764
       search.first.lon.should eq -117.7196785
+    end
+
+    it 'omits q parameter from structured search' do
+      structured_search.first.display_name.should eq 'Los Angeles, California, United States of America'
+      structured_search.first.lat.should eq 34.0966764
+      structured_search.first.lon.should eq -117.7196785
     end
   end
 
@@ -66,6 +77,40 @@ describe Nominatim::Search do
       search.criteria[:viewbox].should eq "52.5487442016602,-1.81651306152344,52.5488510131836,-1.81634628772736"
     end
   end
+
+  describe '#street' do
+    it 'adds a street criterion' do
+      search.street('1000', 'street name')
+      search.criteria[:street].should eq "1000 street name"
+    end
+  end
+  describe '#city' do
+    it 'adds a city criterion' do
+      search.city('City name')
+      search.criteria[:city].should eq "City name"
+    end
+  end
+  describe '#county' do
+    it 'adds a county criterion' do
+      search.county('County name')
+      search.criteria[:county].should eq "County name"
+    end
+  end
+
+  describe '#state' do
+    it 'adds a state criterion' do
+      search.state('State name')
+      search.criteria[:state].should eq "State name"
+    end
+  end
+
+  describe '#country' do
+    it 'adds a country criterion' do
+      search.country('Country name')
+      search.criteria[:country].should eq "Country name"
+    end
+  end
+
 
   describe '#bounded' do
     it 'adds a bounded criterion' do
