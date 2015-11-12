@@ -40,6 +40,60 @@ module Nominatim
       self
     end
 
+    # Street string to search for.
+    #
+    # @param street [String] Street string
+    # @return [Nominatim::Search]
+    def street(street)
+      @criteria[:street] = street
+      self
+    end
+
+    # City string to search for.
+    #
+    # @param city [String] city string
+    # @return [Nominatim::Search]
+    def city(city)
+      @criteria[:city] = city
+      self
+    end
+
+    # County string to search for.
+    #
+    # @param county [String] county string
+    # @return [Nominatim::Search]
+    def county(county)
+      @criteria[:county] = county
+      self
+    end
+
+    # State string to search for.
+    #
+    # @param state [String] state string
+    # @return [Nominatim::Search]
+    def state(state)
+      @criteria[:state] = state
+      self
+    end
+
+    # Country string to search for.
+    #
+    # @param country [String] country string
+    # @return [Nominatim::Search]
+    def country(country)
+      @criteria[:country] = country
+      self
+    end
+
+    # Postal code string to search for.
+    #
+    # @param postalcode [String] postalcode string
+    # @return [Nominatim::Search]
+    def postalcode(postalcode)
+      @criteria[:postalcode] = postalcode
+      self
+    end
+
     # Limit search results to a specific country (or a list of countries).
     #
     # @param codes [Array<String>, String]
@@ -110,6 +164,24 @@ module Nominatim
     # @return [Nominatim::Search]
     def limit(limit)
       @criteria[:limit] = limit
+      self
+    end
+
+    # Limit results to certain type, instead of trying to match
+    # all possible matches.
+    #
+    # Possible values:
+    # - settlement
+    # - country
+    # - city
+    # - state
+    #
+    # This feature is not in official Nominatim documentation.
+    #
+    # @param type Type to restrict to
+    # @return [Nominatim::Search]
+    def featuretype(type)
+      @criteria[:featuretype] = type
       self
     end
 
