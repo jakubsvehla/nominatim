@@ -59,6 +59,48 @@ describe Nominatim::Search do
     end
   end
 
+  describe '#street' do
+    it 'adds a structured query criterion' do
+      search.street('Avenue')
+      search.criteria[:street].should eq 'Avenue'
+    end
+  end
+
+  describe '#city' do
+    it 'adds a structured query criterion' do
+      search.city('London')
+      search.criteria[:city].should eq 'London'
+    end
+  end
+
+  describe '#county' do
+    it 'adds a structured query criterion' do
+      search.county('Richmond County')
+      search.criteria[:county].should eq 'Richmond County'
+    end
+  end
+
+  describe '#state' do
+    it 'adds a structured query criterion' do
+      search.state('Georgia')
+      search.criteria[:state].should eq 'Georgia'
+    end
+  end
+
+  describe '#country' do
+    it 'adds a structured query criterion' do
+      search.country('Germany')
+      search.criteria[:country].should eq 'Germany'
+    end
+  end
+
+  describe '#postalcode' do
+    it 'adds a structured query criterion' do
+      search.postalcode('12345')
+      search.criteria[:postalcode].should eq '12345'
+    end
+  end
+
   describe '#country_codes' do
     it 'adds a country codes criterion' do
       search.country_codes('us')
