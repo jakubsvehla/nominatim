@@ -31,7 +31,7 @@ describe Nominatim do
     end
 
     it 'has a default endpoint' do
-      Nominatim.config.endpoint.should eq "http://nominatim.openstreetmap.org"
+      Nominatim.config.endpoint.should eq "https://nominatim.openstreetmap.org"
     end
 
     it 'sets the endpoint' do
