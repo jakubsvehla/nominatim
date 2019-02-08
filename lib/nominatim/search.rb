@@ -91,6 +91,15 @@ module Nominatim
       self
     end
 
+    # Include a breakdown of the address into elements.
+    #
+    # @param bool [true, false]
+    # @return [Nominatim::Search]
+    def extra_tags(bool)
+      @criteria[:extratags] = bool ? 1 : 0
+      self
+    end
+
     # Exclude given place ids from the search result.
     #
     # @param ids [Array<String>, String] Place ids

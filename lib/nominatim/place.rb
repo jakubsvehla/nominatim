@@ -35,6 +35,13 @@ module Nominatim
       @address ||= Nominatim::Address.new(@attrs[:address]) if @attrs[:address]
     end
 
+    # Return extra Tags
+    #
+    # @return [Nominatim::Tags]
+    def extra_tags
+      @extra_tags ||= @attrs[:extratags]
+    end
+
     # Return a latitude
     #
     # @return [Float]
