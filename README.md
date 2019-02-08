@@ -57,6 +57,12 @@ Nominatim::Search has the following methods to craft structures requests:
 
 See http://wiki.openstreetmap.org/wiki/Nominatim#Parameters
 
+Nominatim::Search has the following flags to toggle result details:
+
+- address_details - Include a breakdown of the address into elements
+- extra_tags - Include additional information in the result if
+               available, e.g. wikipedia link, opening hours.
+
 ## Configuration
 
 ```ruby
