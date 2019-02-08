@@ -40,5 +40,13 @@ module Nominatim
       self
     end
 
+    # Include extra tags has hash
+    #
+    # @param bool [true, false]
+    # @return [Nominatim::Reverse]
+    def extra_tags(bool)
+      @criteria[:extratags] = bool ? 1 : 0
+      self
+    end
   end
 end

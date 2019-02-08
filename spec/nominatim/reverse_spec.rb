@@ -65,4 +65,17 @@ describe Nominatim::Reverse do
       reverse.criteria[:addressdetails].should eq 0
     end
   end
+
+  # See https://wiki.openstreetmap.org/wiki/Nominatim#Parameters_2
+  describe '#extra_tags' do
+    it 'adds an extra tags criterion set to 1' do
+      reverse.extra_tags(true)
+      reverse.criteria[:extratags].should eq 1
+    end
+
+    it 'sets 0 when set with false' do
+      reverse.extra_tags(false)
+      reverse.criteria[:extratags].should eq 0
+    end
+  end
 end
