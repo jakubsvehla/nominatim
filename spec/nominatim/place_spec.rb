@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'multi_json' # simulate Nominatim::Response::ParseJson Middleware
 
 describe Nominatim::Place do
   describe '#display_name' do
@@ -41,6 +42,35 @@ describe Nominatim::Place do
     it 'returns a Nominatim::Address when set' do
       place = Nominatim::Place.new(address: {county: 'Los Angeles', state: 'California', country: 'United States of America'})
       place.address.should be_a Nominatim::Address
+    end
+
+    it 'returns nil when not set' do
+      place = Nominatim::Place.new
+      place.address.should be_nil
+    end
+  end
+
+  describe '#extra_tags' do
+    before do
+      @eiffeltower = MultiJson.load(fixture("eiffeltower.json"), symbolize_keys: true)
+    end
+
+    it 'returns a Hash when set' do
+      place = Nominatim::Place.new(@eiffeltower)
+      place.extra_tags.should be_a Hash
+    end
+
+    it 'returns any key-value provided by Nominatim' do
+      place = Nominatim::Place.new(@eiffeltower)
+      place.extra_tags.keys.should eq %i[
+        wikipedia
+        website
+        image
+        wikidata
+        fee
+        wheelchair
+        opening_hours
+      ]
     end
 
     it 'returns nil when not set' do

@@ -1,0 +1,28 @@
+{
+  "class" : "tourism",
+  "lon" : "2.29449905431968",
+  "lat" : "48.8582602",
+  "boundingbox" : [
+    "48.8574753",
+    "48.8590465",
+    "2.2933084",
+    "2.2956897"
+  ],
+  "osm_id" : "5013364",
+  "osm_type" : "way",
+  "type" : "attraction",
+  "licence" : "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+  "icon" : "https://nominatim.openstreetmap.org/images/mapicons/poi_point_of_interest.p.20.png",
+  "display_name" : "Tour Eiffel, 5, Avenue Anatole France, Gros-Caillou, 7e, Paris, Île-de-France, France métropolitaine, 75007, France",
+  "extratags" : {
+    "wikipedia" : "fr:Tour Eiffel",
+    "website" : "http://toureiffel.paris",
+    "image" : "http://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
+    "wikidata" : "Q243",
+    "fee" : "10-25€",
+    "wheelchair" : "yes",
+    "opening_hours" : "09:30-23:45; Jun 21-Sep 02: 09:00-00:45; Jul 14,Jul 15 off"
+  },
+  "place_id" : "69121935",
+  "importance" : 0.653772102971417
+}
