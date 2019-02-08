@@ -163,6 +163,18 @@ describe Nominatim::Search do
     end
   end
 
+  describe '#extra_tags' do
+    it 'adds an extra tags criterion set to 1' do
+      search.extra_tags(true)
+      search.criteria[:extratags].should eq 1
+    end
+
+    it 'sets 0 when set with false' do
+      search.extra_tags(false)
+      search.criteria[:extratags].should eq 0
+    end
+  end
+
   describe '#exclude_place_ids' do
     it 'excludes given place ids' do
       search.exclude_place_ids('1')
