@@ -3,7 +3,7 @@ require 'multi_json'
 
 module Nominatim
   module Response
-    class ParseJson < Faraday::Response::Middleware
+    class ParseJson < Faraday::Middleware
       def on_complete(env)
         if env[:body].empty?
           env[:body] = nil
